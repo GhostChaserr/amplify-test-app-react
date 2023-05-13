@@ -1,0 +1,20 @@
+name: jest-front-tests
+run-name: running tests
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  run-defined-frontend-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+      - run: npm ci
+      - run: npm run test
