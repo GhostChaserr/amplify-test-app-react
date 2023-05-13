@@ -2,6 +2,8 @@ name: jest-front-tests
 run-name: running tests
 
 on:
+  push:
+    branches: [ tests ]
   pull_request:
     branches: [ develop ]
 
